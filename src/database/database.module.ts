@@ -3,6 +3,7 @@ import { databaseProviders } from './connection/database.provider';
 
 @Global()
 @Module({
-  providers: [...databaseProviders]
+  providers: [...databaseProviders],
+  exports: [...databaseProviders],
 })
 export class DatabaseModule {}

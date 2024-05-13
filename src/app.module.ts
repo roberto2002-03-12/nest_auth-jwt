@@ -7,6 +7,7 @@ import { DatabaseModule } from './database/database.module';
 
 import config from './config/config';
 import { environment } from './config/environment';
+import { UserModule } from './modules/user/user.module';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { environment } from './config/environment';
       isGlobal: true,
     }),
     DatabaseModule,
+    UserModule,
   ],
   controllers: [AppController],
   providers: [AppService],
