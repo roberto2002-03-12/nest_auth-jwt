@@ -3,7 +3,9 @@ import {
   Controller,
   Get,
   Post,
+  UseGuards,
 } from '@nestjs/common';
+import { ApiKeyGuard } from '../../../guards/auth/api-key.guard';
 
 import { UserServiceService } from '../services/user-service.service';
 import { CreateUserDto } from '../dto/user.dto';
@@ -12,6 +14,7 @@ import { CreateUserDto } from '../dto/user.dto';
 export class UserControllerController {
   constructor(private readonly userService: UserServiceService) {}
 
+  @UseGuards(ApiKeyGuard)
   @Get()
   findAll() {
     return this.userService.findAll();
